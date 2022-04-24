@@ -14,9 +14,9 @@ The `load_data` function accepts as an argument `data_dir`, representing the pat
 
 The `data_dir` should contain one directory named after each category, numbered `0` through `NUM_CATEGORIES - 1`. Inside each category should be some number of image files for that category.
 
-I am using the OpenCV-Python module `cv2` to read each image as a `numpy.ndarray`. Each image is then resized to a square, the dimensions specified by the variables `IMG_WIDTH` and `IMG_HEIGHT`.
+I am using the OpenCV-Python module `cv2` to read each image as a `numpy.ndarray`. The images are read with the `IMREAD_COLOR` flag, ensuring that images always have the BGR color channel values.
 
-The images from the dataset are neither necessarily square, nor are the road signs necessarily in the centre. Hence, in order not to lose any of the roadsigns, I am not cropping the images. This may result in some pictures ending up with a different scaling than the original.
+Each image is then resized to a square, the dimensions specified by the variables `IMG_WIDTH` and `IMG_HEIGHT`. The images from the dataset are neither necessarily square, nor are the road signs necessarily in the centre. Hence, in order not to lose any of the roadsigns, I am not cropping the images. This may result in some pictures ending up with a different scaling than the original.
 
 The function returns a tuple `(images, labels)`. `images` is a list of all of the images in the data set, each image represented as a `numpy.ndarray`. `labels` is a list of integers, representing the category number for each of the corresponding images in the `images` list.
 
