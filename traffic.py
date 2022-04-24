@@ -69,6 +69,7 @@ def load_data(data_dir):
         for file in files:
             prefix, suffix = file.split('.')
             if suffix == "ppm":
+                # only append .ppm files
                 image_paths.append(os.path.join(root, file))
 
     for path in image_paths:

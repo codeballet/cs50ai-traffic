@@ -21,3 +21,17 @@ Each image is then resized to a square, the dimensions specified by the variable
 The function returns a tuple `(images, labels)`. `images` is a list of all of the images in the data set, each image represented as a `numpy.ndarray`. `labels` is a list of integers, representing the category number for each of the corresponding images in the `images` list.
 
 ## The `get_model` function
+
+The `get_model` function returns a compiled neural network model.
+
+The input to the neural network should be of shape `(IMG_WIDTH, IMG_HEIGHT, 3)`. The output should have `NUM_CATEGORIES` units, one for each of the traffic sign categories.
+
+### Numbers of convolutional and pooling layers
+
+### Numbers and sizes of filters for convolutional layers
+
+### Pool sizes for pooling layers
+
+### Numbers and sizes of hidden layers
+
+### Dropout
