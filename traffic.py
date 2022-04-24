@@ -1,4 +1,6 @@
 import cv2
+from cv2 import IMREAD_COLOR
+from cv2 import INTER_AREA
 import numpy as np
 import os
 import sys
@@ -58,7 +60,31 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
-    raise NotImplementedError
+    images = list()
+    labels = list()
+
+    # get a list of all images
+    image_paths = list()
+    for root, dirs, files in os.walk(data_dir):
+        for file in files:
+            prefix, suffix = file.split('.')
+            if suffix == "ppm":
+                image_paths.append(os.path.join(root, file))
+
+    for path in image_paths:
+        # add category to labels list
+        labels.append(path.split(os.sep)[-2])
+
+        # read each image as a numpy.ndarray
+        img = cv2.imread(path, IMREAD_COLOR)
+
+        # resize image
+        res = cv2.resize(img, (IMG_WIDTH, IMG_HEIGHT), INTER_AREA)
+
+        # add resized image to images list
+        images.append(res)
+
+    return (images, labels)
 
 
 def get_model():
