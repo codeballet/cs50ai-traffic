@@ -16,7 +16,6 @@ TEST_SIZE = 0.4
 
 
 def main():
-
     # Check command-line arguments
     if len(sys.argv) not in [2, 3]:
         sys.exit("Usage: python traffic.py data_directory [model.h5]")
@@ -82,6 +81,9 @@ def load_data(data_dir):
         # resize image
         res = cv2.resize(img, (IMG_WIDTH, IMG_HEIGHT), INTER_AREA)
 
+        # scale data
+        res = res / 255.0
+
         # add resized image to images list
         images.append(res)
 
@@ -94,8 +96,22 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
-    raise NotImplementedError
+    model = tf.keras.Sequential()
+    model.add(tf.keras.Input(shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
 
+    model.add(tf.keras.layers.Flatten())
+    model.add(tf.keras.layers.Dense(128, activation="relu"))
+    model.add(tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"))
+    
+    model.summary()
+
+    model.compile(
+        optimizer="adam",
+        loss="categorical_crossentropy",
+        metrics=["accuracy"]
+    )
+
+    return model
 
 if __name__ == "__main__":
     main()
