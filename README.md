@@ -8,6 +8,30 @@ The AI explores a common, current field of research in the field of computer vis
 
 In this project, I am using TensorFlow to build a neural network to classify road signs based on an image of those signs. The dataset I am using is the [German Traffic Sign Recognition Benchmark (GTSRB) dataset](https://benchmark.ini.rub.de/gtsrb_dataset.html), which contains thousands of images of 43 different kinds of road signs.
 
+## Using the AI
+
+In order to use the AI, you need to prepare a dataset, structured as described below for the `load_data` function.
+
+You may use the dataset that I used, the [German Traffic Sign Recognition Benchmark (GTSRB) dataset](https://benchmark.ini.rub.de/gtsrb_dataset.html), which should be possiblee to simply download and use without any modifications.
+
+Once having a suitable dataset, you may enter the command:
+
+```
+python traffic.py <dataset_location>
+```
+
+In case you have stored the gtsrb dataset as a folder named `gtsrb` in the same directory as the project, you may simply enter:
+
+```
+python traffic.py gtsrb
+```
+
+If you would like to save your trained model, you may enter an optional third argument:
+
+```
+python traffic.py <dataset_location> <model.h5>
+```
+
 ## The `load_data` function
 
 The `load_data` function accepts as an argument `data_dir`, representing the path to a directory where the data is stored, and return image arrays and labels for each image in the data set.
