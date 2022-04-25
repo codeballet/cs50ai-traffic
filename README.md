@@ -74,6 +74,12 @@ Adjusting the dropout seved to create a more consistent result between the accur
 
 Using three layers with 512, 256, and 128 layers, the dropout rate seemed to be important. Anything smaller than a dropout of 0.4 seemed to lead to overfitting. However, higher dropout rates appeared to result in worse accuracy of both training and testing data.
 
+# Acknowledgements
+
+Data provided by:
+
+J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel. The German Traffic Sign Recognition Benchmark: A multi-class classification competition. In Proceedings of the IEEE International Joint Conference on Neural Networks, pages 1453–1460. 2011
+
 # Intellectual Property
 
 MIT
