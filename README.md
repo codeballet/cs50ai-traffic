@@ -49,3 +49,7 @@ However, increasing the number of hidden layers, and units in the layers, I achi
 Adjusting the dropout seved to create a more consistent result between the accuracies of the training and the testing data. If the dropout was too small, the data typically became overfitted, especially in the case of having several hidden layers in the neural network. However, when only using one layer, the overfitting problem was not as noticeable, and the dropout did not have such a dramatic effect.
 
 Using three layers with 512, 256, and 128 layers, the dropout rate seemed to be important. Anything smaller than a dropout of 0.4 seemed to lead to overfitting. However, higher dropout rates appeared to result in worse accuracy of both training and testing data.
+
+# Intellectual Property
+
+MIT
