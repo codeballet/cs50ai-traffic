@@ -28,10 +28,24 @@ The input to the neural network should be of shape `(IMG_WIDTH, IMG_HEIGHT, 3)`.
 
 ### Numbers of convolutional and pooling layers
 
+I did experiment with different convolutional and pooling layers, and I found that the number and size of convolutional and pooling layers did affect the overall outcome.
+
 ### Numbers and sizes of filters for convolutional layers
+
+For the convolutional layers, the size of the layer matters. Given that the images are rather small, 30x30 pixels, having too large kernel filters lead to worse result. It seems that having larger kernel matrices may result in too much loss of information. Also, I found that adding several convolutional filters did not significantly improve the accuracy. Once again, I believe this is due to an increased loss of information.
 
 ### Pool sizes for pooling layers
 
+For the pool sizes, my conclusion is in accordance with the above: Having too large pooling sizes, or more than one pooling layer, seems to worsen the accuracy of the neural network. I believe that has to do with too much loss of information.
+
 ### Numbers and sizes of hidden layers
 
+Working with only one hidden layer, I found that using 128 units produced surprisingly good results. While the training accuracy only achieved an accuracy around 0.935, the testing data usually gave better result, with accuracy around 0.973. It seems that only using one layer prevented overfitting, and the testing data typically gave better accuracy than the training data.
+
+However, increasing the number of hidden layers, and units in the layers, I achieved a better balance between the accuracy of the training and testing data. For instance, using three hidden layers with 512, 256, and 128 nodes respectively, I typically achieved an accuracy on the training data around 0.988, and on the testing data 0.973.
+
 ### Dropout
+
+Adjusting the dropout seved to create a more consistent result between the accuracies of the training and the testing data. If the dropout was too small, the data typically became overfitted, especially in the case of having several hidden layers in the neural network. However, when only using one layer, the overfitting problem was not as noticeable, and the dropout did not have such a dramatic effect.
+
+Using three layers with 512, 256, and 128 layers, the dropout rate seemed to be important. Anything smaller than a dropout of 0.4 seemed to lead to overfitting. However, higher dropout rates appeared to result in worse accuracy of both training and testing data.
